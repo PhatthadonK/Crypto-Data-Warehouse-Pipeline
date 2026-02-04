@@ -1,0 +1,65 @@
+version: '3.8'
+
+x-airflow-common:
+  &airflow-common
+  image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:2.10.0}
+  environment:
+    &airflow-common-env
+    AIRFLOW__CORE__EXECUTOR: LocalExecutor
+    AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
+    AIRFLOW__CORE__FERNET_KEY: ''
+    AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
+    AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+    # Environment variables for your Python scripts
+    AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+    AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+    DATA_WAREHOUSE_CONN: postgresql+psycopg2://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres_dw:5432/${POSTGRES_DB}
+  volumes:
+    - ./dags:/opt/airflow/dags
+    - ./logs:/opt/airflow/logs
+    - ./plugins:/opt/airflow/plugins
+    - ./requirements.txt:/requirements.txt
+  user: "${AIRFLOW_UID:-50000}:0"
+
+services:
+  # 1. The Internal Airflow Database (Do not touch)
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    ports:
+      - "5434:5432"  # Exposed on 5434 to avoid conflict
+
+  # 2. YOUR Data Warehouse (Where you will load Crypto Data)
+  postgres_dw:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5435:5432"  # You can connect to this on localhost:5432
+    volumes:
+      - postgres_dw_data:/var/lib/postgresql/data
+
+  # 3. Airflow Webserver & Scheduler (Combined for simplicity)
+  airflow-webserver:
+    <<: *airflow-common
+    command: bash -c "pip install -r /requirements.txt && airflow db migrate && airflow users create --username airflow --password airflow --firstname Peter --lastname Parker --role Admin --email spiderman@superhero.org && airflow webserver"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    restart: always
+
+  airflow-scheduler:
+    <<: *airflow-common
+    command: bash -c "pip install -r /requirements.txt && airflow scheduler"
+    depends_on:
+      - postgres
+    restart: always
+
+volumes:
+  postgres_dw_data:

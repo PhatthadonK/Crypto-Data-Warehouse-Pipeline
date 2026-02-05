@@ -1,0 +1,31 @@
+[2026-02-05T07:13:21.614+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-02-05T07:13:21.629+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: crypto_etl_pipeline.process_data manual__2026-02-05T07:13:17.090651+00:00 [queued]>
+[2026-02-05T07:13:21.638+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: crypto_etl_pipeline.process_data manual__2026-02-05T07:13:17.090651+00:00 [queued]>
+[2026-02-05T07:13:21.639+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2026-02-05T07:13:21.652+0000] {taskinstance.py:2888} INFO - Executing <Task(PythonOperator): process_data> on 2026-02-05 07:13:17.090651+00:00
+[2026-02-05T07:13:21.661+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=464) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-02-05T07:13:21.662+0000] {standard_task_runner.py:72} INFO - Started process 466 to run task
+[2026-02-05T07:13:21.661+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'crypto_etl_pipeline', 'process_data', 'manual__2026-02-05T07:13:17.090651+00:00', '--job-id', '10', '--raw', '--subdir', 'DAGS_FOLDER/crypto_pipeline.py', '--cfg-path', '/tmp/tmpcy_bzres']
+[2026-02-05T07:13:21.663+0000] {standard_task_runner.py:105} INFO - Job 10: Subtask process_data
+[2026-02-05T07:13:21.675+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:209 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-02-05T07:13:21.706+0000] {task_command.py:467} INFO - Running <TaskInstance: crypto_etl_pipeline.process_data manual__2026-02-05T07:13:17.090651+00:00 [running]> on host 0cdc7586e174
+[2026-02-05T07:13:21.786+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='crypto_etl_pipeline' AIRFLOW_CTX_TASK_ID='process_data' AIRFLOW_CTX_EXECUTION_DATE='2026-02-05T07:13:17.090651+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-02-05T07:13:17.090651+00:00'
+[2026-02-05T07:13:21.788+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-02-05T07:13:21.894+0000] {logging_mixin.py:190} INFO - 📥 Downloading raw data from S3...
+[2026-02-05T07:13:23.104+0000] {logging_mixin.py:190} INFO - ✅ Transformed 100 rows. Ready to Load.
+[2026-02-05T07:13:23.114+0000] {logging_mixin.py:190} INFO -   symbol      name     price_usd    volume_24h  rank                captured_at
+0    btc   Bitcoin  71041.000000  9.153598e+10     1 2026-02-05 07:13:23.103451
+1    eth  Ethereum   2102.330000  5.186285e+10     2 2026-02-05 07:13:23.103451
+2   usdt    Tether      0.998125  1.504004e+11     3 2026-02-05 07:13:23.103451
+3    bnb       BNB    692.660000  3.056495e+09     4 2026-02-05 07:13:23.103451
+4    xrp       XRP      1.430000  5.753126e+09     5 2026-02-05 07:13:23.103451
+[2026-02-05T07:13:23.123+0000] {base.py:84} INFO - Retrieving connection 'postgres_dw'
+[2026-02-05T07:13:23.125+0000] {logging_mixin.py:190} INFO - 📤 Loading data to Postgres...
+[2026-02-05T07:13:23.133+0000] {base.py:84} INFO - Retrieving connection 'postgres_dw'
+[2026-02-05T07:13:23.150+0000] {logging_mixin.py:190} INFO - 🏆 Data Loaded Successfully!
+[2026-02-05T07:13:23.154+0000] {python.py:240} INFO - Done. Returned value was: None
+[2026-02-05T07:13:23.162+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-02-05T07:13:23.162+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=crypto_etl_pipeline, task_id=process_data, run_id=manual__2026-02-05T07:13:17.090651+00:00, execution_date=20260205T071317, start_date=20260205T071321, end_date=20260205T071323
+[2026-02-05T07:13:23.205+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-02-05T07:13:23.225+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-02-05T07:13:23.227+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

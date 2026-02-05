@@ -93,15 +93,15 @@ def process_data():
 
 default_args = {
     'owner': 'airflow',
-    'start_date': datetime(2024, 1, 1),
+    'start_date': datetime(2025, 1, 1),
     'retries': 0
 }
 
 with DAG(
     dag_id=DAG_ID,
     default_args=default_args,
-    schedule='@hourly',
-    catchup=False
+    schedule='@hourly', 
+    catchup=False,
 ) as dag:
     
     task1 = PythonOperator(task_id="extract_data", python_callable=extract_data)

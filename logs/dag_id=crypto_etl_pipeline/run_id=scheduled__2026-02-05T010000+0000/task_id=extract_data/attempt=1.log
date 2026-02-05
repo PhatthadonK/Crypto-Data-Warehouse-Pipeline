@@ -1,0 +1,411 @@
+[2026-02-05T02:09:08.928+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-02-05T02:09:08.949+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: crypto_etl_pipeline.extract_data scheduled__2026-02-05T01:00:00+00:00 [queued]>
+[2026-02-05T02:09:08.960+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: crypto_etl_pipeline.extract_data scheduled__2026-02-05T01:00:00+00:00 [queued]>
+[2026-02-05T02:09:08.961+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2026-02-05T02:09:08.984+0000] {taskinstance.py:2879} INFO - Executing <Task(PythonOperator): extract_data> on 2026-02-05 01:00:00+00:00
+[2026-02-05T02:09:09.004+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=192) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-02-05T02:09:09.006+0000] {standard_task_runner.py:72} INFO - Started process 194 to run task
+[2026-02-05T02:09:09.004+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'crypto_etl_pipeline', 'extract_data', 'scheduled__2026-02-05T01:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/crypto_pipeline.py', '--cfg-path', '/tmp/tmp3cndpri7']
+[2026-02-05T02:09:09.010+0000] {standard_task_runner.py:105} INFO - Job 2: Subtask extract_data
+[2026-02-05T02:09:09.033+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:209 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-02-05T02:09:09.087+0000] {task_command.py:467} INFO - Running <TaskInstance: crypto_etl_pipeline.extract_data scheduled__2026-02-05T01:00:00+00:00 [running]> on host 62943723d8fb
+[2026-02-05T02:09:09.088+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:449 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-02-05T02:09:09.236+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='crypto_etl_pipeline' AIRFLOW_CTX_TASK_ID='extract_data' AIRFLOW_CTX_EXECUTION_DATE='2026-02-05T01:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-02-05T01:00:00+00:00'
+[2026-02-05T02:09:09.241+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-02-05T02:09:09.404+0000] {logging_mixin.py:190} INFO - 530
+[2026-02-05T02:09:09.406+0000] {python.py:240} INFO - Done. Returned value was: None
+[2026-02-05T02:09:09.423+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-02-05T02:09:09.424+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=crypto_etl_pipeline, task_id=extract_data, run_id=scheduled__2026-02-05T01:00:00+00:00, execution_date=20260205T010000, start_date=20260205T020908, end_date=20260205T020909
+[2026-02-05T02:09:09.466+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2026-02-05T02:09:09.506+0000] {taskinstance.py:3891} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-02-05T02:09:09.510+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2026-02-05T02:16:12.538+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-02-05T02:16:12.554+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: crypto_etl_pipeline.extract_data scheduled__2026-02-05T01:00:00+00:00 [queued]>
+[2026-02-05T02:16:12.562+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: crypto_etl_pipeline.extract_data scheduled__2026-02-05T01:00:00+00:00 [queued]>
+[2026-02-05T02:16:12.563+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2026-02-05T02:16:12.576+0000] {taskinstance.py:2879} INFO - Executing <Task(PythonOperator): extract_data> on 2026-02-05 01:00:00+00:00
+[2026-02-05T02:16:12.586+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=192) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-02-05T02:16:12.587+0000] {standard_task_runner.py:72} INFO - Started process 194 to run task
+[2026-02-05T02:16:12.585+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'crypto_etl_pipeline', 'extract_data', 'scheduled__2026-02-05T01:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/crypto_pipeline.py', '--cfg-path', '/tmp/tmpuv7_p4yf']
+[2026-02-05T02:16:12.588+0000] {standard_task_runner.py:105} INFO - Job 2: Subtask extract_data
+[2026-02-05T02:16:12.603+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:209 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-02-05T02:16:12.639+0000] {task_command.py:467} INFO - Running <TaskInstance: crypto_etl_pipeline.extract_data scheduled__2026-02-05T01:00:00+00:00 [running]> on host 118e6c7db85e
+[2026-02-05T02:16:12.641+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:449 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-02-05T02:16:12.721+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='crypto_etl_pipeline' AIRFLOW_CTX_TASK_ID='extract_data' AIRFLOW_CTX_EXECUTION_DATE='2026-02-05T01:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-02-05T01:00:00+00:00'
+[2026-02-05T02:16:12.723+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-02-05T02:16:12.824+0000] {logging_mixin.py:190} INFO - ❌ CRITICAL ERROR: 530 Server Error: <none> for url: https://api.coincap.io/v2/assets
+[2026-02-05T02:16:12.827+0000] {taskinstance.py:3301} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/crypto_pipeline.py", line 43, in extract_data
+    raise e
+  File "/opt/airflow/dags/crypto_pipeline.py", line 24, in extract_data
+    response.raise_for_status()
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 530 Server Error: <none> for url: https://api.coincap.io/v2/assets
+[2026-02-05T02:16:12.848+0000] {taskinstance.py:1225} INFO - Marking task as FAILED. dag_id=crypto_etl_pipeline, task_id=extract_data, run_id=scheduled__2026-02-05T01:00:00+00:00, execution_date=20260205T010000, start_date=20260205T021612, end_date=20260205T021612
+[2026-02-05T02:16:12.870+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-02-05T02:16:12.872+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 2 for task extract_data (530 Server Error: <none> for url: https://api.coincap.io/v2/assets; 194)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 115, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 2995, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3149, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3173, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/crypto_pipeline.py", line 43, in extract_data
+    raise e
+  File "/opt/airflow/dags/crypto_pipeline.py", line 24, in extract_data
+    response.raise_for_status()
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 530 Server Error: <none> for url: https://api.coincap.io/v2/assets
+[2026-02-05T02:16:12.923+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 1
+[2026-02-05T02:16:12.944+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-02-05T02:16:12.948+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2026-02-05T02:19:39.293+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-02-05T02:19:39.307+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: crypto_etl_pipeline.extract_data scheduled__2026-02-05T01:00:00+00:00 [queued]>
+[2026-02-05T02:19:39.313+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: crypto_etl_pipeline.extract_data scheduled__2026-02-05T01:00:00+00:00 [queued]>
+[2026-02-05T02:19:39.313+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2026-02-05T02:19:39.324+0000] {taskinstance.py:2879} INFO - Executing <Task(PythonOperator): extract_data> on 2026-02-05 01:00:00+00:00
+[2026-02-05T02:19:39.331+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=192) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-02-05T02:19:39.332+0000] {standard_task_runner.py:72} INFO - Started process 194 to run task
+[2026-02-05T02:19:39.331+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'crypto_etl_pipeline', 'extract_data', 'scheduled__2026-02-05T01:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/crypto_pipeline.py', '--cfg-path', '/tmp/tmp9mtc6vo3']
+[2026-02-05T02:19:39.334+0000] {standard_task_runner.py:105} INFO - Job 2: Subtask extract_data
+[2026-02-05T02:19:39.347+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:209 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-02-05T02:19:39.382+0000] {task_command.py:467} INFO - Running <TaskInstance: crypto_etl_pipeline.extract_data scheduled__2026-02-05T01:00:00+00:00 [running]> on host dcdbe9f6739b
+[2026-02-05T02:19:39.384+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:449 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-02-05T02:19:39.462+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='crypto_etl_pipeline' AIRFLOW_CTX_TASK_ID='extract_data' AIRFLOW_CTX_EXECUTION_DATE='2026-02-05T01:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-02-05T01:00:00+00:00'
+[2026-02-05T02:19:39.464+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-02-05T02:19:39.535+0000] {logging_mixin.py:190} INFO - ❌ CRITICAL ERROR: HTTPSConnectionPool(host='api.coincap.io', port=443): Max retries exceeded with url: /v2/assets (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f62a33cd250>: Failed to resolve 'api.coincap.io' ([Errno -2] Name or service not known)"))
+[2026-02-05T02:19:39.536+0000] {taskinstance.py:3301} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 196, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 976, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 490, in _make_request
+    raise new_e
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 466, in _make_request
+    self._validate_conn(conn)
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 1095, in _validate_conn
+    conn.connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 615, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 203, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x7f62a33cd250>: Failed to resolve 'api.coincap.io' ([Errno -2] Name or service not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.coincap.io', port=443): Max retries exceeded with url: /v2/assets (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f62a33cd250>: Failed to resolve 'api.coincap.io' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/crypto_pipeline.py", line 43, in extract_data
+    raise e
+  File "/opt/airflow/dags/crypto_pipeline.py", line 22, in extract_data
+    response = requests.get(API_URL, timeout=10) # Added timeout
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.coincap.io', port=443): Max retries exceeded with url: /v2/assets (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f62a33cd250>: Failed to resolve 'api.coincap.io' ([Errno -2] Name or service not known)"))
+[2026-02-05T02:19:39.550+0000] {taskinstance.py:1225} INFO - Marking task as FAILED. dag_id=crypto_etl_pipeline, task_id=extract_data, run_id=scheduled__2026-02-05T01:00:00+00:00, execution_date=20260205T010000, start_date=20260205T021939, end_date=20260205T021939
+[2026-02-05T02:19:39.560+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-02-05T02:19:39.560+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 2 for task extract_data (HTTPSConnectionPool(host='api.coincap.io', port=443): Max retries exceeded with url: /v2/assets (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f62a33cd250>: Failed to resolve 'api.coincap.io' ([Errno -2] Name or service not known)")); 194)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 196, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 976, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 490, in _make_request
+    raise new_e
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 466, in _make_request
+    self._validate_conn(conn)
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 1095, in _validate_conn
+    conn.connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 615, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 203, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x7f62a33cd250>: Failed to resolve 'api.coincap.io' ([Errno -2] Name or service not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.coincap.io', port=443): Max retries exceeded with url: /v2/assets (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f62a33cd250>: Failed to resolve 'api.coincap.io' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 115, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 2995, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3149, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3173, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/crypto_pipeline.py", line 43, in extract_data
+    raise e
+  File "/opt/airflow/dags/crypto_pipeline.py", line 22, in extract_data
+    response = requests.get(API_URL, timeout=10) # Added timeout
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.coincap.io', port=443): Max retries exceeded with url: /v2/assets (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f62a33cd250>: Failed to resolve 'api.coincap.io' ([Errno -2] Name or service not known)"))
+[2026-02-05T02:19:39.588+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 1
+[2026-02-05T02:19:39.610+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-02-05T02:19:39.616+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2026-02-05T02:26:29.809+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-02-05T02:26:29.829+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: crypto_etl_pipeline.extract_data scheduled__2026-02-05T01:00:00+00:00 [queued]>
+[2026-02-05T02:26:29.840+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: crypto_etl_pipeline.extract_data scheduled__2026-02-05T01:00:00+00:00 [queued]>
+[2026-02-05T02:26:29.841+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2026-02-05T02:26:29.856+0000] {taskinstance.py:2879} INFO - Executing <Task(PythonOperator): extract_data> on 2026-02-05 01:00:00+00:00
+[2026-02-05T02:26:29.867+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=192) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-02-05T02:26:29.866+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'crypto_etl_pipeline', 'extract_data', 'scheduled__2026-02-05T01:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/crypto_pipeline.py', '--cfg-path', '/tmp/tmpqqgxy8pk']
+[2026-02-05T02:26:29.869+0000] {standard_task_runner.py:72} INFO - Started process 194 to run task
+[2026-02-05T02:26:29.869+0000] {standard_task_runner.py:105} INFO - Job 2: Subtask extract_data
+[2026-02-05T02:26:29.889+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:209 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-02-05T02:26:29.933+0000] {task_command.py:467} INFO - Running <TaskInstance: crypto_etl_pipeline.extract_data scheduled__2026-02-05T01:00:00+00:00 [running]> on host cc5734c32a53
+[2026-02-05T02:26:29.937+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:449 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-02-05T02:26:30.057+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='crypto_etl_pipeline' AIRFLOW_CTX_TASK_ID='extract_data' AIRFLOW_CTX_EXECUTION_DATE='2026-02-05T01:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-02-05T01:00:00+00:00'
+[2026-02-05T02:26:30.059+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-02-05T02:26:30.095+0000] {logging_mixin.py:190} INFO - 🚀 Launching API Request to https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false...
+[2026-02-05T02:26:30.477+0000] {logging_mixin.py:190} INFO - ✅ API Success! Uploading to S3...
+[2026-02-05T02:26:33.250+0000] {logging_mixin.py:190} INFO - ✅ Upload Successful to S3!
+[2026-02-05T02:26:33.252+0000] {python.py:240} INFO - Done. Returned value was: None
+[2026-02-05T02:26:33.260+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-02-05T02:26:33.261+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=crypto_etl_pipeline, task_id=extract_data, run_id=scheduled__2026-02-05T01:00:00+00:00, execution_date=20260205T010000, start_date=20260205T022629, end_date=20260205T022633
+[2026-02-05T02:26:33.301+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2026-02-05T02:26:33.315+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-02-05T02:26:33.318+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2026-02-05T02:50:02.958+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-02-05T02:50:02.973+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: crypto_etl_pipeline.extract_data scheduled__2026-02-05T01:00:00+00:00 [queued]>
+[2026-02-05T02:50:02.981+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: crypto_etl_pipeline.extract_data scheduled__2026-02-05T01:00:00+00:00 [queued]>
+[2026-02-05T02:50:02.982+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2026-02-05T02:50:02.994+0000] {taskinstance.py:2879} INFO - Executing <Task(PythonOperator): extract_data> on 2026-02-05 01:00:00+00:00
+[2026-02-05T02:50:03.008+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=198) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-02-05T02:50:03.010+0000] {standard_task_runner.py:72} INFO - Started process 200 to run task
+[2026-02-05T02:50:03.007+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'crypto_etl_pipeline', 'extract_data', 'scheduled__2026-02-05T01:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/crypto_pipeline.py', '--cfg-path', '/tmp/tmpowry1pyb']
+[2026-02-05T02:50:03.011+0000] {standard_task_runner.py:105} INFO - Job 2: Subtask extract_data
+[2026-02-05T02:50:03.028+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:209 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-02-05T02:50:03.075+0000] {task_command.py:467} INFO - Running <TaskInstance: crypto_etl_pipeline.extract_data scheduled__2026-02-05T01:00:00+00:00 [running]> on host 8ff7c219cd4f
+[2026-02-05T02:50:03.077+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:449 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-02-05T02:50:03.172+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='crypto_etl_pipeline' AIRFLOW_CTX_TASK_ID='extract_data' AIRFLOW_CTX_EXECUTION_DATE='2026-02-05T01:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-02-05T01:00:00+00:00'
+[2026-02-05T02:50:03.173+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-02-05T02:50:03.199+0000] {logging_mixin.py:190} INFO - 🚀 Launching API Request to https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false...
+[2026-02-05T02:50:03.582+0000] {logging_mixin.py:190} INFO - ✅ API Success! Uploading to S3...
+[2026-02-05T02:50:06.158+0000] {logging_mixin.py:190} INFO - ✅ Upload Successful to S3!
+[2026-02-05T02:50:06.160+0000] {python.py:240} INFO - Done. Returned value was: None
+[2026-02-05T02:50:06.168+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-02-05T02:50:06.169+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=crypto_etl_pipeline, task_id=extract_data, run_id=scheduled__2026-02-05T01:00:00+00:00, execution_date=20260205T010000, start_date=20260205T025002, end_date=20260205T025006
+[2026-02-05T02:50:06.202+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2026-02-05T02:50:06.220+0000] {taskinstance.py:3891} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-02-05T02:50:06.222+0000] {local_task_job_runner.py:240} INFO - ::endgroup::

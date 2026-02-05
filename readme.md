@@ -64,6 +64,7 @@ Password: airflow
 ### 5. Configure the Database Connection
 In Airflow UI, go to Admin -> Connections.
 
+```
 Add a new connection:
 
 Conn Id: postgres_dw
@@ -79,6 +80,7 @@ Login: airflow
 Password: airflow
 
 Port: 5432
+```
 
 🏃‍♂️ Usage
 Enable the DAG named crypto_etl_pipeline in the Airflow UI.
@@ -89,9 +91,10 @@ To trigger a manual run, click the Play Button (▶).
 
 Verification
 You can check the data in the Postgres Warehouse by connecting to the database:
-
-SQL
+```bash
 SELECT * FROM crypto_prices ORDER BY captured_at DESC LIMIT 10;
+```
+```
 📂 Project Structure
 Plaintext
 ├── dags/
@@ -100,3 +103,4 @@ Plaintext
 ├── requirements.txt         # Python dependencies
 ├── README.md                # Project Documentation
 └── .gitignore               # Ignores .env and logs
+```

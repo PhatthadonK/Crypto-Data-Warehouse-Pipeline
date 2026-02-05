@@ -101,8 +101,8 @@ Select the crypto_db database.
 
 Create a chart using the avg_price_analytics table.
 
-```📂 Project Structure
-Plaintext
+📂 Project Structure
+```Plaintext
 ├── dags/
 │   └── crypto_pipeline.py    # Main ETL Logic (Airflow DAG)
 ├── crypto_analytics/         # dbt Project (Transformation Logic)

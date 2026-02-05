@@ -1,5 +1,6 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
+from airflow.operators.bash import BashOperator
 from airflow.providers.postgres.hooks.postgres import PostgresHook
 import requests
 import pandas as pd
@@ -106,4 +107,17 @@ with DAG(
     task1 = PythonOperator(task_id="extract_data", python_callable=extract_data)
     task2 = PythonOperator(task_id="process_data", python_callable=process_data)
     
-    task1 >> task2
+    transform_task = BashOperator(
+        task_id='dbt_transform',
+        bash_command=(
+            "python -m venv /tmp/dbt_env && "
+            "source /tmp/dbt_env/bin/activate && "
+            "pip install dbt-postgres && "
+
+            "printf 'crypto_analytics:\n  target: dev\n  outputs:\n    dev:\n      type: postgres\n      host: postgres_dw\n      user: airflow\n      password: airflow\n      port: 5432\n      dbname: crypto_db\n      schema: public\n      threads: 1\n' > /opt/airflow/dbt/profiles.yml && "
+
+            "cd /opt/airflow/dbt && "
+            "dbt run --profiles-dir ."
+        )
+    )
+    task1 >> task2 >> transform_task

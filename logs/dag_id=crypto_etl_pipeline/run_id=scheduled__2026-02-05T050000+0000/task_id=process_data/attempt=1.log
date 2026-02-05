@@ -1,0 +1,32 @@
+[2026-02-05T06:00:06.386+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-02-05T06:00:06.409+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: crypto_etl_pipeline.process_data scheduled__2026-02-05T05:00:00+00:00 [queued]>
+[2026-02-05T06:00:06.422+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: crypto_etl_pipeline.process_data scheduled__2026-02-05T05:00:00+00:00 [queued]>
+[2026-02-05T06:00:06.423+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2026-02-05T06:00:06.443+0000] {taskinstance.py:2888} INFO - Executing <Task(PythonOperator): process_data> on 2026-02-05 05:00:00+00:00
+[2026-02-05T06:00:06.465+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=287) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-02-05T06:00:06.469+0000] {standard_task_runner.py:72} INFO - Started process 289 to run task
+[2026-02-05T06:00:06.465+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'crypto_etl_pipeline', 'process_data', 'scheduled__2026-02-05T05:00:00+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/crypto_pipeline.py', '--cfg-path', '/tmp/tmp2ucv1fo8']
+[2026-02-05T06:00:06.487+0000] {standard_task_runner.py:105} INFO - Job 6: Subtask process_data
+[2026-02-05T06:00:06.511+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:209 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-02-05T06:00:06.559+0000] {task_command.py:467} INFO - Running <TaskInstance: crypto_etl_pipeline.process_data scheduled__2026-02-05T05:00:00+00:00 [running]> on host 87e9046ae7a3
+[2026-02-05T06:00:06.561+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:470 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-02-05T06:00:06.699+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='crypto_etl_pipeline' AIRFLOW_CTX_TASK_ID='process_data' AIRFLOW_CTX_EXECUTION_DATE='2026-02-05T05:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-02-05T05:00:00+00:00'
+[2026-02-05T06:00:06.701+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-02-05T06:00:06.895+0000] {logging_mixin.py:190} INFO - 📥 Downloading raw data from S3...
+[2026-02-05T06:00:08.206+0000] {logging_mixin.py:190} INFO - ✅ Transformed 100 rows. Ready to Load.
+[2026-02-05T06:00:08.259+0000] {logging_mixin.py:190} INFO -   symbol      name     price_usd    volume_24h  rank                captured_at
+0    btc   Bitcoin  70553.000000  8.828504e+10     1 2026-02-05 06:00:08.202039
+1    eth  Ethereum   2096.440000  5.090305e+10     2 2026-02-05 06:00:08.202039
+2   usdt    Tether      0.997952  1.459636e+11     3 2026-02-05 06:00:08.202039
+3    bnb       BNB    690.890000  3.045685e+09     4 2026-02-05 06:00:08.202039
+4    xrp       XRP      1.440000  5.514448e+09     5 2026-02-05 06:00:08.202039
+[2026-02-05T06:00:08.276+0000] {base.py:84} INFO - Retrieving connection 'postgres_dw'
+[2026-02-05T06:00:08.278+0000] {logging_mixin.py:190} INFO - 📤 Loading data to Postgres...
+[2026-02-05T06:00:08.299+0000] {base.py:84} INFO - Retrieving connection 'postgres_dw'
+[2026-02-05T06:00:08.323+0000] {logging_mixin.py:190} INFO - 🏆 Data Loaded Successfully!
+[2026-02-05T06:00:08.327+0000] {python.py:240} INFO - Done. Returned value was: None
+[2026-02-05T06:00:08.340+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-02-05T06:00:08.341+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=crypto_etl_pipeline, task_id=process_data, run_id=scheduled__2026-02-05T05:00:00+00:00, execution_date=20260205T050000, start_date=20260205T060006, end_date=20260205T060008
+[2026-02-05T06:00:08.389+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-02-05T06:00:08.415+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-02-05T06:00:08.417+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

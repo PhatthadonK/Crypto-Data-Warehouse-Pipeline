@@ -1,0 +1,199 @@
+[2026-02-05T05:15:37.907+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-02-05T05:15:37.946+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: crypto_etl_pipeline.process_data scheduled__2026-02-05T04:00:00+00:00 [queued]>
+[2026-02-05T05:15:37.967+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: crypto_etl_pipeline.process_data scheduled__2026-02-05T04:00:00+00:00 [queued]>
+[2026-02-05T05:15:37.969+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2026-02-05T05:15:38.021+0000] {taskinstance.py:2879} INFO - Executing <Task(PythonOperator): process_data> on 2026-02-05 04:00:00+00:00
+[2026-02-05T05:15:38.058+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=286) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-02-05T05:15:38.057+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'crypto_etl_pipeline', 'process_data', 'scheduled__2026-02-05T04:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/crypto_pipeline.py', '--cfg-path', '/tmp/tmp185ijuf6']
+[2026-02-05T05:15:38.062+0000] {standard_task_runner.py:105} INFO - Job 3: Subtask process_data
+[2026-02-05T05:15:38.064+0000] {standard_task_runner.py:72} INFO - Started process 288 to run task
+[2026-02-05T05:15:38.099+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:209 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-02-05T05:15:38.188+0000] {task_command.py:467} INFO - Running <TaskInstance: crypto_etl_pipeline.process_data scheduled__2026-02-05T04:00:00+00:00 [running]> on host 18b96e710945
+[2026-02-05T05:15:38.193+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:449 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-02-05T05:15:38.406+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='crypto_etl_pipeline' AIRFLOW_CTX_TASK_ID='process_data' AIRFLOW_CTX_EXECUTION_DATE='2026-02-05T04:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-02-05T04:00:00+00:00'
+[2026-02-05T05:15:38.408+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-02-05T05:15:38.695+0000] {logging_mixin.py:190} INFO - 📥 Downloading raw data from S3...
+[2026-02-05T05:15:40.019+0000] {logging_mixin.py:190} INFO - ✅ Transformed 100 rows. Ready to Load.
+[2026-02-05T05:15:40.044+0000] {logging_mixin.py:190} INFO -   symbol      name    price_usd    volume_24h  rank                captured_at
+0    btc   Bitcoin  70856.00000  8.171705e+10     1 2026-02-05 05:15:40.011839
+1    eth  Ethereum   2107.44000  5.084885e+10     2 2026-02-05 05:15:40.011839
+2   usdt    Tether      0.99808  1.414328e+11     3 2026-02-05 05:15:40.011839
+3    bnb       BNB    691.97000  2.969585e+09     4 2026-02-05 05:15:40.011839
+4    xrp       XRP      1.44000  5.328093e+09     5 2026-02-05 05:15:40.011839
+[2026-02-05T05:15:40.081+0000] {taskinstance.py:3301} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/crypto_pipeline.py", line 88, in process_data
+    engine = pg_hook.get_sqlalchemy_engine()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/hooks/sql.py", line 249, in get_sqlalchemy_engine
+    url = self.sqlalchemy_url
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/postgres/hooks/postgres.py", line 120, in sqlalchemy_url
+    conn = self.get_connection(self.get_conn_id())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/hooks/base.py", line 83, in get_connection
+    conn = Connection.get_connection_from_secrets(conn_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/connection.py", line 537, in get_connection_from_secrets
+    raise AirflowNotFoundException(f"The conn_id `{conn_id}` isn't defined")
+airflow.exceptions.AirflowNotFoundException: The conn_id `postgres_dw` isn't defined
+[2026-02-05T05:15:40.095+0000] {taskinstance.py:1225} INFO - Marking task as FAILED. dag_id=crypto_etl_pipeline, task_id=process_data, run_id=scheduled__2026-02-05T04:00:00+00:00, execution_date=20260205T040000, start_date=20260205T051537, end_date=20260205T051540
+[2026-02-05T05:15:40.112+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-02-05T05:15:40.113+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 3 for task process_data (The conn_id `postgres_dw` isn't defined; 288)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 115, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 2995, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3149, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3173, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/crypto_pipeline.py", line 88, in process_data
+    engine = pg_hook.get_sqlalchemy_engine()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/hooks/sql.py", line 249, in get_sqlalchemy_engine
+    url = self.sqlalchemy_url
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/postgres/hooks/postgres.py", line 120, in sqlalchemy_url
+    conn = self.get_connection(self.get_conn_id())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/hooks/base.py", line 83, in get_connection
+    conn = Connection.get_connection_from_secrets(conn_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/connection.py", line 537, in get_connection_from_secrets
+    raise AirflowNotFoundException(f"The conn_id `{conn_id}` isn't defined")
+airflow.exceptions.AirflowNotFoundException: The conn_id `postgres_dw` isn't defined
+[2026-02-05T05:15:40.131+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 1
+[2026-02-05T05:15:40.156+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-02-05T05:15:40.161+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2026-02-05T05:34:46.529+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-02-05T05:34:46.554+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: crypto_etl_pipeline.process_data scheduled__2026-02-05T04:00:00+00:00 [queued]>
+[2026-02-05T05:34:46.585+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: crypto_etl_pipeline.process_data scheduled__2026-02-05T04:00:00+00:00 [queued]>
+[2026-02-05T05:34:46.586+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2026-02-05T05:34:46.608+0000] {taskinstance.py:2888} INFO - Executing <Task(PythonOperator): process_data> on 2026-02-05 04:00:00+00:00
+[2026-02-05T05:34:46.618+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=221) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-02-05T05:34:46.620+0000] {standard_task_runner.py:72} INFO - Started process 223 to run task
+[2026-02-05T05:34:46.618+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'crypto_etl_pipeline', 'process_data', 'scheduled__2026-02-05T04:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/crypto_pipeline.py', '--cfg-path', '/tmp/tmp7vz2f92b']
+[2026-02-05T05:34:46.622+0000] {standard_task_runner.py:105} INFO - Job 3: Subtask process_data
+[2026-02-05T05:34:46.639+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:209 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-02-05T05:34:46.682+0000] {task_command.py:467} INFO - Running <TaskInstance: crypto_etl_pipeline.process_data scheduled__2026-02-05T04:00:00+00:00 [running]> on host 9e5d710f3666
+[2026-02-05T05:34:46.684+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:470 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-02-05T05:34:46.780+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='crypto_etl_pipeline' AIRFLOW_CTX_TASK_ID='process_data' AIRFLOW_CTX_EXECUTION_DATE='2026-02-05T04:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-02-05T04:00:00+00:00'
+[2026-02-05T05:34:46.781+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-02-05T05:34:46.904+0000] {logging_mixin.py:190} INFO - 📥 Downloading raw data from S3...
+[2026-02-05T05:34:48.328+0000] {logging_mixin.py:190} INFO - ✅ Transformed 100 rows. Ready to Load.
+[2026-02-05T05:34:48.367+0000] {logging_mixin.py:190} INFO -   symbol      name     price_usd    volume_24h  rank                captured_at
+0    btc   Bitcoin  70309.000000  8.671307e+10     1 2026-02-05 05:34:48.301909
+1    eth  Ethereum   2087.960000  5.052561e+10     2 2026-02-05 05:34:48.301909
+2   usdt    Tether      0.998001  1.436600e+11     3 2026-02-05 05:34:48.301909
+3    bnb       BNB    687.990000  3.005472e+09     4 2026-02-05 05:34:48.301909
+4    xrp       XRP      1.430000  5.392613e+09     5 2026-02-05 05:34:48.301909
+[2026-02-05T05:34:48.392+0000] {base.py:84} INFO - Retrieving connection 'postgres_dw'
+[2026-02-05T05:34:48.395+0000] {logging_mixin.py:190} INFO - 📤 Loading data to Postgres...
+[2026-02-05T05:34:48.419+0000] {base.py:84} INFO - Retrieving connection 'postgres_dw'
+[2026-02-05T05:34:48.514+0000] {logging_mixin.py:190} INFO - 🏆 Data Loaded Successfully!
+[2026-02-05T05:34:48.517+0000] {python.py:240} INFO - Done. Returned value was: None
+[2026-02-05T05:34:48.538+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-02-05T05:34:48.539+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=crypto_etl_pipeline, task_id=process_data, run_id=scheduled__2026-02-05T04:00:00+00:00, execution_date=20260205T040000, start_date=20260205T053446, end_date=20260205T053448
+[2026-02-05T05:34:48.571+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-02-05T05:34:48.608+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-02-05T05:34:48.612+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-02-05T05:59:38.674+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-02-05T05:59:38.690+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: crypto_etl_pipeline.process_data scheduled__2026-02-05T04:00:00+00:00 [queued]>
+[2026-02-05T05:59:38.697+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: crypto_etl_pipeline.process_data scheduled__2026-02-05T04:00:00+00:00 [queued]>
+[2026-02-05T05:59:38.698+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2026-02-05T05:59:38.708+0000] {taskinstance.py:2888} INFO - Executing <Task(PythonOperator): process_data> on 2026-02-05 04:00:00+00:00
+[2026-02-05T05:59:38.715+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=226) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-02-05T05:59:38.716+0000] {standard_task_runner.py:72} INFO - Started process 228 to run task
+[2026-02-05T05:59:38.715+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'crypto_etl_pipeline', 'process_data', 'scheduled__2026-02-05T04:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/crypto_pipeline.py', '--cfg-path', '/tmp/tmp3g3wh9sn']
+[2026-02-05T05:59:38.717+0000] {standard_task_runner.py:105} INFO - Job 3: Subtask process_data
+[2026-02-05T05:59:38.729+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:209 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-02-05T05:59:38.760+0000] {task_command.py:467} INFO - Running <TaskInstance: crypto_etl_pipeline.process_data scheduled__2026-02-05T04:00:00+00:00 [running]> on host 87e9046ae7a3
+[2026-02-05T05:59:38.762+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:470 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-02-05T05:59:38.832+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='crypto_etl_pipeline' AIRFLOW_CTX_TASK_ID='process_data' AIRFLOW_CTX_EXECUTION_DATE='2026-02-05T04:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-02-05T04:00:00+00:00'
+[2026-02-05T05:59:38.834+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-02-05T05:59:38.968+0000] {logging_mixin.py:190} INFO - 📥 Downloading raw data from S3...
+[2026-02-05T05:59:40.327+0000] {logging_mixin.py:190} INFO - ✅ Transformed 100 rows. Ready to Load.
+[2026-02-05T05:59:40.351+0000] {logging_mixin.py:190} INFO -   symbol      name     price_usd    volume_24h  rank                captured_at
+0    btc   Bitcoin  70553.000000  8.828504e+10     1 2026-02-05 05:59:40.323960
+1    eth  Ethereum   2096.440000  5.090305e+10     2 2026-02-05 05:59:40.323960
+2   usdt    Tether      0.997952  1.459636e+11     3 2026-02-05 05:59:40.323960
+3    bnb       BNB    690.890000  3.045685e+09     4 2026-02-05 05:59:40.323960
+4    xrp       XRP      1.440000  5.514448e+09     5 2026-02-05 05:59:40.323960
+[2026-02-05T05:59:40.378+0000] {base.py:84} INFO - Retrieving connection 'postgres_dw'
+[2026-02-05T05:59:40.380+0000] {logging_mixin.py:190} INFO - 📤 Loading data to Postgres...
+[2026-02-05T05:59:40.391+0000] {base.py:84} INFO - Retrieving connection 'postgres_dw'
+[2026-02-05T05:59:40.440+0000] {logging_mixin.py:190} INFO - 🏆 Data Loaded Successfully!
+[2026-02-05T05:59:40.443+0000] {python.py:240} INFO - Done. Returned value was: None
+[2026-02-05T05:59:40.456+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-02-05T05:59:40.457+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=crypto_etl_pipeline, task_id=process_data, run_id=scheduled__2026-02-05T04:00:00+00:00, execution_date=20260205T040000, start_date=20260205T055938, end_date=20260205T055940
+[2026-02-05T05:59:40.499+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-02-05T05:59:40.519+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-02-05T05:59:40.522+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

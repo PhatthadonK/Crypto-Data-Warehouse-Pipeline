@@ -2,7 +2,8 @@ version: '3.8'
 
 x-airflow-common:
   &airflow-common
-  image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:2.10.0}
+  build: .
+  #image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:2.10.0}
   environment:
     &airflow-common-env
     AIRFLOW__CORE__EXECUTOR: LocalExecutor
@@ -10,6 +11,13 @@ x-airflow-common:
     AIRFLOW__CORE__FERNET_KEY: ''
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
     AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+
+    DBT_PROFILES_DIR: /opt/airflow/dbt
+    DBT_HOST: postgres_dw
+    DBT_USER: airflow
+    DBT_PASS: airflow
+    DBT_PORT: 5432
+
     # Environment variables for your Python scripts
     AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
     AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
@@ -19,6 +27,7 @@ x-airflow-common:
     - ./logs:/opt/airflow/logs
     - ./plugins:/opt/airflow/plugins
     - ./requirements.txt:/requirements.txt
+    - ./crypto_analytics:/opt/airflow/dbt
   user: "${AIRFLOW_UID:-50000}:0"
 
 services:

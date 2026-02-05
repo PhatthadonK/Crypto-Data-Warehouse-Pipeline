@@ -1,0 +1,395 @@
+[2026-02-05T05:19:01.205+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-02-05T05:19:01.223+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: crypto_etl_pipeline.dbt_transform scheduled__2026-02-05T04:00:00+00:00 [queued]>
+[2026-02-05T05:19:01.234+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: crypto_etl_pipeline.dbt_transform scheduled__2026-02-05T04:00:00+00:00 [queued]>
+[2026-02-05T05:19:01.235+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2026-02-05T05:19:01.250+0000] {taskinstance.py:2879} INFO - Executing <Task(BashOperator): dbt_transform> on 2026-02-05 04:00:00+00:00
+[2026-02-05T05:19:01.260+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=330) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-02-05T05:19:01.262+0000] {standard_task_runner.py:72} INFO - Started process 332 to run task
+[2026-02-05T05:19:01.260+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'crypto_etl_pipeline', 'dbt_transform', 'scheduled__2026-02-05T04:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/crypto_pipeline.py', '--cfg-path', '/tmp/tmpvlwij653']
+[2026-02-05T05:19:01.263+0000] {standard_task_runner.py:105} INFO - Job 5: Subtask dbt_transform
+[2026-02-05T05:19:01.278+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:209 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-02-05T05:19:01.319+0000] {task_command.py:467} INFO - Running <TaskInstance: crypto_etl_pipeline.dbt_transform scheduled__2026-02-05T04:00:00+00:00 [running]> on host 18b96e710945
+[2026-02-05T05:19:01.321+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:449 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-02-05T05:19:01.440+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='crypto_etl_pipeline' AIRFLOW_CTX_TASK_ID='dbt_transform' AIRFLOW_CTX_EXECUTION_DATE='2026-02-05T04:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-02-05T04:00:00+00:00'
+[2026-02-05T05:19:01.443+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-02-05T05:19:01.460+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-02-05T05:19:01.463+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/dbt && dbt run']
+[2026-02-05T05:19:01.476+0000] {subprocess.py:86} INFO - Output:
+[2026-02-05T05:19:01.498+0000] {subprocess.py:93} INFO - /usr/bin/bash: line 1: dbt: command not found
+[2026-02-05T05:19:01.499+0000] {subprocess.py:97} INFO - Command exited with return code 127
+[2026-02-05T05:19:01.509+0000] {taskinstance.py:3301} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 249, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 127.
+[2026-02-05T05:19:01.514+0000] {taskinstance.py:1225} INFO - Marking task as FAILED. dag_id=crypto_etl_pipeline, task_id=dbt_transform, run_id=scheduled__2026-02-05T04:00:00+00:00, execution_date=20260205T040000, start_date=20260205T051901, end_date=20260205T051901
+[2026-02-05T05:19:01.529+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-02-05T05:19:01.530+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 5 for task dbt_transform (Bash command failed. The command returned a non-zero exit code 127.; 332)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 115, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 2995, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3149, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3173, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 249, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 127.
+[2026-02-05T05:19:01.557+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 1
+[2026-02-05T05:19:01.568+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2026-02-05T05:34:49.738+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-02-05T05:34:49.757+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: crypto_etl_pipeline.dbt_transform scheduled__2026-02-05T04:00:00+00:00 [queued]>
+[2026-02-05T05:34:49.767+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: crypto_etl_pipeline.dbt_transform scheduled__2026-02-05T04:00:00+00:00 [queued]>
+[2026-02-05T05:34:49.768+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2026-02-05T05:34:49.783+0000] {taskinstance.py:2888} INFO - Executing <Task(BashOperator): dbt_transform> on 2026-02-05 04:00:00+00:00
+[2026-02-05T05:34:49.793+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=229) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-02-05T05:34:49.795+0000] {standard_task_runner.py:72} INFO - Started process 233 to run task
+[2026-02-05T05:34:49.793+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'crypto_etl_pipeline', 'dbt_transform', 'scheduled__2026-02-05T04:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/crypto_pipeline.py', '--cfg-path', '/tmp/tmp9d1rxnni']
+[2026-02-05T05:34:49.798+0000] {standard_task_runner.py:105} INFO - Job 4: Subtask dbt_transform
+[2026-02-05T05:34:49.822+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:209 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-02-05T05:34:49.928+0000] {task_command.py:467} INFO - Running <TaskInstance: crypto_etl_pipeline.dbt_transform scheduled__2026-02-05T04:00:00+00:00 [running]> on host 9e5d710f3666
+[2026-02-05T05:34:49.930+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:470 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-02-05T05:34:50.064+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='crypto_etl_pipeline' AIRFLOW_CTX_TASK_ID='dbt_transform' AIRFLOW_CTX_EXECUTION_DATE='2026-02-05T04:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-02-05T04:00:00+00:00'
+[2026-02-05T05:34:50.066+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-02-05T05:34:50.108+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-02-05T05:34:50.111+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'pip install --user dbt-postgres && export PATH=$PATH:/home/***/.local/bin && cd /opt/***/dbt && dbt run']
+[2026-02-05T05:34:50.134+0000] {subprocess.py:86} INFO - Output:
+[2026-02-05T05:34:51.619+0000] {subprocess.py:93} INFO - 
+[2026-02-05T05:34:51.619+0000] {subprocess.py:93} INFO - [notice] A new release of pip is available: 24.2 -> 26.0.1
+[2026-02-05T05:34:51.620+0000] {subprocess.py:93} INFO - [notice] To update, run: pip install --upgrade pip
+[2026-02-05T05:34:51.620+0000] {subprocess.py:93} INFO - ERROR: Can not perform a '--user' install. User site-packages are not visible in this virtualenv.
+[2026-02-05T05:34:51.685+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-02-05T05:34:51.695+0000] {taskinstance.py:3310} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 249, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-02-05T05:34:51.700+0000] {taskinstance.py:1225} INFO - Marking task as FAILED. dag_id=crypto_etl_pipeline, task_id=dbt_transform, run_id=scheduled__2026-02-05T04:00:00+00:00, execution_date=20260205T040000, start_date=20260205T053449, end_date=20260205T053451
+[2026-02-05T05:34:51.715+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-02-05T05:34:51.716+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 4 for task dbt_transform (Bash command failed. The command returned a non-zero exit code 1.; 233)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 115, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3004, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3158, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3182, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 249, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-02-05T05:34:51.741+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2026-02-05T05:34:51.755+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-02-05T05:34:51.760+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-02-05T05:59:41.677+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-02-05T05:59:41.694+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: crypto_etl_pipeline.dbt_transform scheduled__2026-02-05T04:00:00+00:00 [queued]>
+[2026-02-05T05:59:41.703+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: crypto_etl_pipeline.dbt_transform scheduled__2026-02-05T04:00:00+00:00 [queued]>
+[2026-02-05T05:59:41.704+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2026-02-05T05:59:41.716+0000] {taskinstance.py:2888} INFO - Executing <Task(BashOperator): dbt_transform> on 2026-02-05 04:00:00+00:00
+[2026-02-05T05:59:41.723+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=230) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-02-05T05:59:41.725+0000] {standard_task_runner.py:72} INFO - Started process 232 to run task
+[2026-02-05T05:59:41.724+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'crypto_etl_pipeline', 'dbt_transform', 'scheduled__2026-02-05T04:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/crypto_pipeline.py', '--cfg-path', '/tmp/tmp_t28qziq']
+[2026-02-05T05:59:41.726+0000] {standard_task_runner.py:105} INFO - Job 4: Subtask dbt_transform
+[2026-02-05T05:59:41.738+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:209 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-02-05T05:59:41.772+0000] {task_command.py:467} INFO - Running <TaskInstance: crypto_etl_pipeline.dbt_transform scheduled__2026-02-05T04:00:00+00:00 [running]> on host 87e9046ae7a3
+[2026-02-05T05:59:41.774+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:470 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-02-05T05:59:41.851+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='crypto_etl_pipeline' AIRFLOW_CTX_TASK_ID='dbt_transform' AIRFLOW_CTX_EXECUTION_DATE='2026-02-05T04:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-02-05T04:00:00+00:00'
+[2026-02-05T05:59:41.852+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-02-05T05:59:41.865+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-02-05T05:59:41.886+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', "python -m venv /tmp/dbt_env && source /tmp/dbt_env/bin/activate && pip install dbt-postgres && printf 'crypto_analytics:\n  target: dev\n  outputs:\n    dev:\n      type: postgres\n      host: postgres_dw\n      user: ***\n      password: ***\n      port: 5432\n      dbname: crypto_db\n      schema: public\n      threads: 1\n' > /opt/***/dbt/profiles.yml && cd /opt/***/dbt && dbt run --profiles-dir ."]
+[2026-02-05T05:59:41.898+0000] {subprocess.py:86} INFO - Output:
+[2026-02-05T05:59:48.121+0000] {subprocess.py:93} INFO - Collecting dbt-postgres
+[2026-02-05T05:59:48.239+0000] {subprocess.py:93} INFO -   Downloading dbt_postgres-1.10.0-py3-none-any.whl.metadata (3.9 kB)
+[2026-02-05T05:59:48.554+0000] {subprocess.py:93} INFO - Collecting agate<2.0,>=1.0 (from dbt-postgres)
+[2026-02-05T05:59:48.564+0000] {subprocess.py:93} INFO -   Downloading agate-1.14.1-py3-none-any.whl.metadata (3.1 kB)
+[2026-02-05T05:59:48.887+0000] {subprocess.py:93} INFO - Collecting dbt-adapters<2.0,>=1.19.0 (from dbt-postgres)
+[2026-02-05T05:59:48.895+0000] {subprocess.py:93} INFO -   Downloading dbt_adapters-1.22.5-py3-none-any.whl.metadata (4.5 kB)
+[2026-02-05T05:59:49.244+0000] {subprocess.py:93} INFO - Collecting dbt-common<2.0,>=1.0.4 (from dbt-postgres)
+[2026-02-05T05:59:49.254+0000] {subprocess.py:93} INFO -   Downloading dbt_common-1.37.2-py3-none-any.whl.metadata (4.9 kB)
+[2026-02-05T05:59:49.720+0000] {subprocess.py:93} INFO - Collecting dbt-core>=1.8.0rc1 (from dbt-postgres)
+[2026-02-05T05:59:49.729+0000] {subprocess.py:93} INFO -   Downloading dbt_core-1.11.2-py3-none-any.whl.metadata (4.4 kB)
+[2026-02-05T05:59:49.871+0000] {subprocess.py:93} INFO - Collecting psycopg2-binary<3.0,>=2.9 (from dbt-postgres)
+[2026-02-05T05:59:49.881+0000] {subprocess.py:93} INFO -   Downloading psycopg2_binary-2.9.11-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+[2026-02-05T05:59:49.940+0000] {subprocess.py:93} INFO - Collecting Babel>=2.0 (from agate<2.0,>=1.0->dbt-postgres)
+[2026-02-05T05:59:49.948+0000] {subprocess.py:93} INFO -   Downloading babel-2.18.0-py3-none-any.whl.metadata (2.2 kB)
+[2026-02-05T05:59:49.974+0000] {subprocess.py:93} INFO - Collecting isodate>=0.5.4 (from agate<2.0,>=1.0->dbt-postgres)
+[2026-02-05T05:59:49.984+0000] {subprocess.py:93} INFO -   Downloading isodate-0.7.2-py3-none-any.whl.metadata (11 kB)
+[2026-02-05T05:59:50.273+0000] {subprocess.py:93} INFO - Collecting leather>=0.3.2 (from agate<2.0,>=1.0->dbt-postgres)
+[2026-02-05T05:59:50.283+0000] {subprocess.py:93} INFO -   Downloading leather-0.4.1-py3-none-any.whl.metadata (3.0 kB)
+[2026-02-05T05:59:50.308+0000] {subprocess.py:93} INFO - Collecting parsedatetime!=2.5,>=2.1 (from agate<2.0,>=1.0->dbt-postgres)
+[2026-02-05T05:59:50.316+0000] {subprocess.py:93} INFO -   Downloading parsedatetime-2.6-py3-none-any.whl.metadata (4.7 kB)
+[2026-02-05T05:59:50.353+0000] {subprocess.py:93} INFO - Collecting python-slugify>=1.2.1 (from agate<2.0,>=1.0->dbt-postgres)
+[2026-02-05T05:59:50.362+0000] {subprocess.py:93} INFO -   Downloading python_slugify-8.0.4-py2.py3-none-any.whl.metadata (8.5 kB)
+[2026-02-05T05:59:50.647+0000] {subprocess.py:93} INFO - Collecting pytimeparse>=1.1.5 (from agate<2.0,>=1.0->dbt-postgres)
+[2026-02-05T05:59:50.668+0000] {subprocess.py:93} INFO -   Downloading pytimeparse-1.1.8-py2.py3-none-any.whl.metadata (3.4 kB)
+[2026-02-05T05:59:50.963+0000] {subprocess.py:93} INFO - Collecting dbt-protos<2.0,>=1.0.291 (from dbt-adapters<2.0,>=1.19.0->dbt-postgres)
+[2026-02-05T05:59:50.974+0000] {subprocess.py:93} INFO -   Downloading dbt_protos-1.0.427-py3-none-any.whl.metadata (859 bytes)
+[2026-02-05T05:59:51.278+0000] {subprocess.py:93} INFO - Collecting mashumaro<3.15,>=3.9 (from mashumaro[msgpack]<3.15,>=3.9->dbt-adapters<2.0,>=1.19.0->dbt-postgres)
+[2026-02-05T05:59:51.288+0000] {subprocess.py:93} INFO -   Downloading mashumaro-3.14-py3-none-any.whl.metadata (114 kB)
+[2026-02-05T05:59:51.642+0000] {subprocess.py:93} INFO - Collecting protobuf<7.0,>=6.0 (from dbt-adapters<2.0,>=1.19.0->dbt-postgres)
+[2026-02-05T05:59:51.651+0000] {subprocess.py:93} INFO -   Downloading protobuf-6.33.5-cp39-abi3-manylinux2014_x86_64.whl.metadata (593 bytes)
+[2026-02-05T05:59:51.760+0000] {subprocess.py:93} INFO - Collecting pytz>=2015.7 (from dbt-adapters<2.0,>=1.19.0->dbt-postgres)
+[2026-02-05T05:59:51.770+0000] {subprocess.py:93} INFO -   Downloading pytz-2025.2-py2.py3-none-any.whl.metadata (22 kB)
+[2026-02-05T05:59:51.819+0000] {subprocess.py:93} INFO - Collecting typing-extensions<5.0,>=4.0 (from dbt-adapters<2.0,>=1.19.0->dbt-postgres)
+[2026-02-05T05:59:51.828+0000] {subprocess.py:93} INFO -   Downloading typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+[2026-02-05T05:59:51.848+0000] {subprocess.py:93} INFO - Collecting agate<2.0,>=1.0 (from dbt-postgres)
+[2026-02-05T05:59:51.856+0000] {subprocess.py:93} INFO -   Downloading agate-1.9.1-py2.py3-none-any.whl.metadata (3.2 kB)
+[2026-02-05T05:59:51.900+0000] {subprocess.py:93} INFO - Collecting colorama<0.5,>=0.3.9 (from dbt-common<2.0,>=1.0.4->dbt-postgres)
+[2026-02-05T05:59:51.920+0000] {subprocess.py:93} INFO -   Downloading colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+[2026-02-05T05:59:51.988+0000] {subprocess.py:93} INFO - Collecting deepdiff<9.0,>=7.0 (from dbt-common<2.0,>=1.0.4->dbt-postgres)
+[2026-02-05T05:59:51.997+0000] {subprocess.py:93} INFO -   Downloading deepdiff-8.6.1-py3-none-any.whl.metadata (8.6 kB)
+[2026-02-05T05:59:52.048+0000] {subprocess.py:93} INFO - Collecting jinja2<4,>=3.1.3 (from dbt-common<2.0,>=1.0.4->dbt-postgres)
+[2026-02-05T05:59:52.057+0000] {subprocess.py:93} INFO -   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+[2026-02-05T05:59:52.128+0000] {subprocess.py:93} INFO - Collecting jsonschema<5.0,>=4.0 (from dbt-common<2.0,>=1.0.4->dbt-postgres)
+[2026-02-05T05:59:52.136+0000] {subprocess.py:93} INFO -   Downloading jsonschema-4.26.0-py3-none-any.whl.metadata (7.6 kB)
+[2026-02-05T05:59:52.214+0000] {subprocess.py:93} INFO - Collecting pathspec<0.13,>=0.9 (from dbt-common<2.0,>=1.0.4->dbt-postgres)
+[2026-02-05T05:59:52.225+0000] {subprocess.py:93} INFO -   Downloading pathspec-0.12.1-py3-none-any.whl.metadata (21 kB)
+[2026-02-05T05:59:52.269+0000] {subprocess.py:93} INFO - Collecting python-dateutil<3.0,>=2.0 (from dbt-common<2.0,>=1.0.4->dbt-postgres)
+[2026-02-05T05:59:52.340+0000] {subprocess.py:93} INFO -   Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+[2026-02-05T05:59:52.419+0000] {subprocess.py:93} INFO - Collecting requests<3.0.0 (from dbt-common<2.0,>=1.0.4->dbt-postgres)
+[2026-02-05T05:59:52.427+0000] {subprocess.py:93} INFO -   Downloading requests-2.32.5-py3-none-any.whl.metadata (4.9 kB)
+[2026-02-05T05:59:52.490+0000] {subprocess.py:93} INFO - Collecting click<9.0,>=8.2.0 (from dbt-core>=1.8.0rc1->dbt-postgres)
+[2026-02-05T05:59:52.498+0000] {subprocess.py:93} INFO -   Downloading click-8.3.1-py3-none-any.whl.metadata (2.6 kB)
+[2026-02-05T05:59:52.804+0000] {subprocess.py:93} INFO - Collecting daff>=1.3.46 (from dbt-core>=1.8.0rc1->dbt-postgres)
+[2026-02-05T05:59:52.812+0000] {subprocess.py:93} INFO -   Downloading daff-1.4.2-py3-none-any.whl.metadata (10 kB)
+[2026-02-05T05:59:53.142+0000] {subprocess.py:93} INFO - Collecting dbt-extractor<=0.6,>=0.5.0 (from dbt-core>=1.8.0rc1->dbt-postgres)
+[2026-02-05T05:59:53.152+0000] {subprocess.py:93} INFO -   Downloading dbt_extractor-0.6.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.6 kB)
+[2026-02-05T05:59:53.518+0000] {subprocess.py:93} INFO - Collecting dbt-semantic-interfaces<0.10,>=0.9.0 (from dbt-core>=1.8.0rc1->dbt-postgres)
+[2026-02-05T05:59:53.530+0000] {subprocess.py:93} INFO -   Downloading dbt_semantic_interfaces-0.9.0-py3-none-any.whl.metadata (2.6 kB)
+[2026-02-05T05:59:53.654+0000] {subprocess.py:93} INFO - Collecting networkx<4.0,>=2.3 (from dbt-core>=1.8.0rc1->dbt-postgres)
+[2026-02-05T05:59:53.664+0000] {subprocess.py:93} INFO -   Downloading networkx-3.6.1-py3-none-any.whl.metadata (6.8 kB)
+[2026-02-05T05:59:53.797+0000] {subprocess.py:93} INFO - Collecting packaging>20.9 (from dbt-core>=1.8.0rc1->dbt-postgres)
+[2026-02-05T05:59:53.804+0000] {subprocess.py:93} INFO -   Downloading packaging-26.0-py3-none-any.whl.metadata (3.3 kB)
+[2026-02-05T05:59:54.076+0000] {subprocess.py:93} INFO - Collecting pydantic<3 (from dbt-core>=1.8.0rc1->dbt-postgres)
+[2026-02-05T05:59:54.085+0000] {subprocess.py:93} INFO -   Downloading pydantic-2.12.5-py3-none-any.whl.metadata (90 kB)
+[2026-02-05T05:59:54.170+0000] {subprocess.py:93} INFO - Collecting pyyaml>=6.0 (from dbt-core>=1.8.0rc1->dbt-postgres)
+[2026-02-05T05:59:54.193+0000] {subprocess.py:93} INFO -   Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+[2026-02-05T05:59:54.492+0000] {subprocess.py:93} INFO - Collecting snowplow-tracker<2.0,>=1.0.2 (from dbt-core>=1.8.0rc1->dbt-postgres)
+[2026-02-05T05:59:54.501+0000] {subprocess.py:93} INFO -   Downloading snowplow_tracker-1.1.0-py3-none-any.whl.metadata (5.7 kB)
+[2026-02-05T05:59:54.533+0000] {subprocess.py:93} INFO - Collecting sqlparse<0.5.5,>=0.5.0 (from dbt-core>=1.8.0rc1->dbt-postgres)
+[2026-02-05T05:59:54.543+0000] {subprocess.py:93} INFO -   Downloading sqlparse-0.5.4-py3-none-any.whl.metadata (4.7 kB)
+[2026-02-05T05:59:54.732+0000] {subprocess.py:93} INFO - Collecting importlib-metadata<9,>=6.0 (from dbt-semantic-interfaces<0.10,>=0.9.0->dbt-core>=1.8.0rc1->dbt-postgres)
+[2026-02-05T05:59:54.741+0000] {subprocess.py:93} INFO -   Downloading importlib_metadata-8.7.1-py3-none-any.whl.metadata (4.7 kB)
+[2026-02-05T05:59:54.792+0000] {subprocess.py:93} INFO - Collecting more-itertools<11.0,>=8.0 (from dbt-semantic-interfaces<0.10,>=0.9.0->dbt-core>=1.8.0rc1->dbt-postgres)
+[2026-02-05T05:59:54.801+0000] {subprocess.py:93} INFO -   Downloading more_itertools-10.8.0-py3-none-any.whl.metadata (39 kB)
+[2026-02-05T05:59:54.858+0000] {subprocess.py:93} INFO - Collecting orderly-set<6,>=5.4.1 (from deepdiff<9.0,>=7.0->dbt-common<2.0,>=1.0.4->dbt-postgres)
+[2026-02-05T05:59:54.866+0000] {subprocess.py:93} INFO -   Downloading orderly_set-5.5.0-py3-none-any.whl.metadata (6.6 kB)
+[2026-02-05T05:59:55.004+0000] {subprocess.py:93} INFO - Collecting MarkupSafe>=2.0 (from jinja2<4,>=3.1.3->dbt-common<2.0,>=1.0.4->dbt-postgres)
+[2026-02-05T05:59:55.015+0000] {subprocess.py:93} INFO -   Downloading markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+[2026-02-05T05:59:55.061+0000] {subprocess.py:93} INFO - Collecting attrs>=22.2.0 (from jsonschema<5.0,>=4.0->dbt-common<2.0,>=1.0.4->dbt-postgres)
+[2026-02-05T05:59:55.071+0000] {subprocess.py:93} INFO -   Downloading attrs-25.4.0-py3-none-any.whl.metadata (10 kB)
+[2026-02-05T05:59:55.115+0000] {subprocess.py:93} INFO - Collecting jsonschema-specifications>=2023.03.6 (from jsonschema<5.0,>=4.0->dbt-common<2.0,>=1.0.4->dbt-postgres)
+[2026-02-05T05:59:55.124+0000] {subprocess.py:93} INFO -   Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl.metadata (2.9 kB)
+[2026-02-05T05:59:55.234+0000] {subprocess.py:93} INFO - Collecting referencing>=0.28.4 (from jsonschema<5.0,>=4.0->dbt-common<2.0,>=1.0.4->dbt-postgres)
+[2026-02-05T05:59:55.245+0000] {subprocess.py:93} INFO -   Downloading referencing-0.37.0-py3-none-any.whl.metadata (2.8 kB)
+[2026-02-05T05:59:55.810+0000] {subprocess.py:93} INFO - Collecting rpds-py>=0.25.0 (from jsonschema<5.0,>=4.0->dbt-common<2.0,>=1.0.4->dbt-postgres)
+[2026-02-05T05:59:55.820+0000] {subprocess.py:93} INFO -   Downloading rpds_py-0.30.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)
+[2026-02-05T05:59:56.000+0000] {subprocess.py:93} INFO - Collecting msgpack>=0.5.6 (from mashumaro[msgpack]<3.15,>=3.9->dbt-adapters<2.0,>=1.19.0->dbt-postgres)
+[2026-02-05T05:59:56.010+0000] {subprocess.py:93} INFO -   Downloading msgpack-1.1.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.1 kB)
+[2026-02-05T05:59:56.057+0000] {subprocess.py:93} INFO - Collecting annotated-types>=0.6.0 (from pydantic<3->dbt-core>=1.8.0rc1->dbt-postgres)
+[2026-02-05T05:59:56.067+0000] {subprocess.py:93} INFO -   Downloading annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+[2026-02-05T05:59:57.558+0000] {subprocess.py:93} INFO - Collecting pydantic-core==2.41.5 (from pydantic<3->dbt-core>=1.8.0rc1->dbt-postgres)
+[2026-02-05T05:59:57.566+0000] {subprocess.py:93} INFO -   Downloading pydantic_core-2.41.5-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.3 kB)
+[2026-02-05T05:59:57.598+0000] {subprocess.py:93} INFO - Collecting typing-inspection>=0.4.2 (from pydantic<3->dbt-core>=1.8.0rc1->dbt-postgres)
+[2026-02-05T05:59:57.606+0000] {subprocess.py:93} INFO -   Downloading typing_inspection-0.4.2-py3-none-any.whl.metadata (2.6 kB)
+[2026-02-05T05:59:57.643+0000] {subprocess.py:93} INFO - Collecting six>=1.5 (from python-dateutil<3.0,>=2.0->dbt-common<2.0,>=1.0.4->dbt-postgres)
+[2026-02-05T05:59:57.653+0000] {subprocess.py:93} INFO -   Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+[2026-02-05T05:59:57.679+0000] {subprocess.py:93} INFO - Collecting text-unidecode>=1.3 (from python-slugify>=1.2.1->agate<2.0,>=1.0->dbt-postgres)
+[2026-02-05T05:59:57.701+0000] {subprocess.py:93} INFO -   Downloading text_unidecode-1.3-py2.py3-none-any.whl.metadata (2.4 kB)
+[2026-02-05T05:59:57.875+0000] {subprocess.py:93} INFO - Collecting charset_normalizer<4,>=2 (from requests<3.0.0->dbt-common<2.0,>=1.0.4->dbt-postgres)
+[2026-02-05T05:59:57.885+0000] {subprocess.py:93} INFO -   Downloading charset_normalizer-3.4.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (37 kB)
+[2026-02-05T05:59:57.923+0000] {subprocess.py:93} INFO - Collecting idna<4,>=2.5 (from requests<3.0.0->dbt-common<2.0,>=1.0.4->dbt-postgres)
+[2026-02-05T05:59:57.931+0000] {subprocess.py:93} INFO -   Downloading idna-3.11-py3-none-any.whl.metadata (8.4 kB)
+[2026-02-05T05:59:58.033+0000] {subprocess.py:93} INFO - Collecting urllib3<3,>=1.21.1 (from requests<3.0.0->dbt-common<2.0,>=1.0.4->dbt-postgres)
+[2026-02-05T05:59:58.042+0000] {subprocess.py:93} INFO -   Downloading urllib3-2.6.3-py3-none-any.whl.metadata (6.9 kB)
+[2026-02-05T05:59:58.085+0000] {subprocess.py:93} INFO - Collecting certifi>=2017.4.17 (from requests<3.0.0->dbt-common<2.0,>=1.0.4->dbt-postgres)
+[2026-02-05T05:59:58.092+0000] {subprocess.py:93} INFO -   Downloading certifi-2026.1.4-py3-none-any.whl.metadata (2.5 kB)
+[2026-02-05T05:59:58.195+0000] {subprocess.py:93} INFO - Collecting zipp>=3.20 (from importlib-metadata<9,>=6.0->dbt-semantic-interfaces<0.10,>=0.9.0->dbt-core>=1.8.0rc1->dbt-postgres)
+[2026-02-05T05:59:58.212+0000] {subprocess.py:93} INFO -   Downloading zipp-3.23.0-py3-none-any.whl.metadata (3.6 kB)
+[2026-02-05T05:59:58.298+0000] {subprocess.py:93} INFO - Downloading dbt_postgres-1.10.0-py3-none-any.whl (35 kB)
+[2026-02-05T05:59:58.312+0000] {subprocess.py:93} INFO - Downloading dbt_adapters-1.22.5-py3-none-any.whl (172 kB)
+[2026-02-05T05:59:58.335+0000] {subprocess.py:93} INFO - Downloading dbt_common-1.37.2-py3-none-any.whl (87 kB)
+[2026-02-05T05:59:58.358+0000] {subprocess.py:93} INFO - Downloading agate-1.9.1-py2.py3-none-any.whl (95 kB)
+[2026-02-05T05:59:58.376+0000] {subprocess.py:93} INFO - Downloading dbt_core-1.11.2-py3-none-any.whl (1.0 MB)
+[2026-02-05T05:59:58.466+0000] {subprocess.py:93} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.0/1.0 MB 11.0 MB/s eta 0:00:00
+[2026-02-05T05:59:58.477+0000] {subprocess.py:93} INFO - Downloading psycopg2_binary-2.9.11-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.2 MB)
+[2026-02-05T05:59:58.718+0000] {subprocess.py:93} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.2/4.2 MB 17.1 MB/s eta 0:00:00
+[2026-02-05T05:59:58.730+0000] {subprocess.py:93} INFO - Downloading babel-2.18.0-py3-none-any.whl (10.2 MB)
+[2026-02-05T05:59:59.326+0000] {subprocess.py:93} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.2/10.2 MB 17.1 MB/s eta 0:00:00
+[2026-02-05T05:59:59.337+0000] {subprocess.py:93} INFO - Downloading click-8.3.1-py3-none-any.whl (108 kB)
+[2026-02-05T05:59:59.359+0000] {subprocess.py:93} INFO - Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+[2026-02-05T05:59:59.377+0000] {subprocess.py:93} INFO - Downloading daff-1.4.2-py3-none-any.whl (144 kB)
+[2026-02-05T05:59:59.401+0000] {subprocess.py:93} INFO - Downloading dbt_extractor-0.6.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (442 kB)
+[2026-02-05T05:59:59.442+0000] {subprocess.py:93} INFO - Downloading dbt_protos-1.0.427-py3-none-any.whl (174 kB)
+[2026-02-05T05:59:59.483+0000] {subprocess.py:93} INFO - Downloading dbt_semantic_interfaces-0.9.0-py3-none-any.whl (147 kB)
+[2026-02-05T05:59:59.508+0000] {subprocess.py:93} INFO - Downloading deepdiff-8.6.1-py3-none-any.whl (91 kB)
+[2026-02-05T05:59:59.525+0000] {subprocess.py:93} INFO - Downloading isodate-0.7.2-py3-none-any.whl (22 kB)
+[2026-02-05T05:59:59.538+0000] {subprocess.py:93} INFO - Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+[2026-02-05T05:59:59.563+0000] {subprocess.py:93} INFO - Downloading jsonschema-4.26.0-py3-none-any.whl (90 kB)
+[2026-02-05T05:59:59.584+0000] {subprocess.py:93} INFO - Downloading leather-0.4.1-py3-none-any.whl (30 kB)
+[2026-02-05T05:59:59.597+0000] {subprocess.py:93} INFO - Downloading mashumaro-3.14-py3-none-any.whl (92 kB)
+[2026-02-05T05:59:59.618+0000] {subprocess.py:93} INFO - Downloading networkx-3.6.1-py3-none-any.whl (2.1 MB)
+[2026-02-05T05:59:59.788+0000] {subprocess.py:93} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 11.2 MB/s eta 0:00:00
+[2026-02-05T05:59:59.798+0000] {subprocess.py:93} INFO - Downloading packaging-26.0-py3-none-any.whl (74 kB)
+[2026-02-05T05:59:59.815+0000] {subprocess.py:93} INFO - Downloading parsedatetime-2.6-py3-none-any.whl (42 kB)
+[2026-02-05T05:59:59.832+0000] {subprocess.py:93} INFO - Downloading pathspec-0.12.1-py3-none-any.whl (31 kB)
+[2026-02-05T05:59:59.847+0000] {subprocess.py:93} INFO - Downloading protobuf-6.33.5-cp39-abi3-manylinux2014_x86_64.whl (323 kB)
+[2026-02-05T05:59:59.875+0000] {subprocess.py:93} INFO - Downloading pydantic-2.12.5-py3-none-any.whl (463 kB)
+[2026-02-05T05:59:59.916+0000] {subprocess.py:93} INFO - Downloading pydantic_core-2.41.5-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
+[2026-02-05T06:00:00.056+0000] {subprocess.py:93} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 14.2 MB/s eta 0:00:00
+[2026-02-05T06:00:00.067+0000] {subprocess.py:93} INFO - Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+[2026-02-05T06:00:00.088+0000] {subprocess.py:93} INFO - Downloading python_slugify-8.0.4-py2.py3-none-any.whl (10 kB)
+[2026-02-05T06:00:00.103+0000] {subprocess.py:93} INFO - Downloading pytimeparse-1.1.8-py2.py3-none-any.whl (10.0 kB)
+[2026-02-05T06:00:00.117+0000] {subprocess.py:93} INFO - Downloading pytz-2025.2-py2.py3-none-any.whl (509 kB)
+[2026-02-05T06:00:00.161+0000] {subprocess.py:93} INFO - Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+[2026-02-05T06:00:00.265+0000] {subprocess.py:93} INFO -    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 11.2 MB/s eta 0:00:00
+[2026-02-05T06:00:00.274+0000] {subprocess.py:93} INFO - Downloading requests-2.32.5-py3-none-any.whl (64 kB)
+[2026-02-05T06:00:00.300+0000] {subprocess.py:93} INFO - Downloading snowplow_tracker-1.1.0-py3-none-any.whl (44 kB)
+[2026-02-05T06:00:00.325+0000] {subprocess.py:93} INFO - Downloading sqlparse-0.5.4-py3-none-any.whl (45 kB)
+[2026-02-05T06:00:00.345+0000] {subprocess.py:93} INFO - Downloading typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+[2026-02-05T06:00:00.364+0000] {subprocess.py:93} INFO - Downloading annotated_types-0.7.0-py3-none-any.whl (13 kB)
+[2026-02-05T06:00:00.382+0000] {subprocess.py:93} INFO - Downloading attrs-25.4.0-py3-none-any.whl (67 kB)
+[2026-02-05T06:00:00.405+0000] {subprocess.py:93} INFO - Downloading certifi-2026.1.4-py3-none-any.whl (152 kB)
+[2026-02-05T06:00:00.428+0000] {subprocess.py:93} INFO - Downloading charset_normalizer-3.4.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (153 kB)
+[2026-02-05T06:00:00.469+0000] {subprocess.py:93} INFO - Downloading idna-3.11-py3-none-any.whl (71 kB)
+[2026-02-05T06:00:00.491+0000] {subprocess.py:93} INFO - Downloading importlib_metadata-8.7.1-py3-none-any.whl (27 kB)
+[2026-02-05T06:00:00.510+0000] {subprocess.py:93} INFO - Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl (18 kB)
+[2026-02-05T06:00:00.528+0000] {subprocess.py:93} INFO - Downloading markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+[2026-02-05T06:00:00.546+0000] {subprocess.py:93} INFO - Downloading more_itertools-10.8.0-py3-none-any.whl (69 kB)
+[2026-02-05T06:00:00.564+0000] {subprocess.py:93} INFO - Downloading msgpack-1.1.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (427 kB)
+[2026-02-05T06:00:00.607+0000] {subprocess.py:93} INFO - Downloading orderly_set-5.5.0-py3-none-any.whl (13 kB)
+[2026-02-05T06:00:00.625+0000] {subprocess.py:93} INFO - Downloading referencing-0.37.0-py3-none-any.whl (26 kB)
+[2026-02-05T06:00:00.645+0000] {subprocess.py:93} INFO - Downloading rpds_py-0.30.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (394 kB)
+[2026-02-05T06:00:00.683+0000] {subprocess.py:93} INFO - Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+[2026-02-05T06:00:00.713+0000] {subprocess.py:93} INFO - Downloading text_unidecode-1.3-py2.py3-none-any.whl (78 kB)
+[2026-02-05T06:00:00.732+0000] {subprocess.py:93} INFO - Downloading typing_inspection-0.4.2-py3-none-any.whl (14 kB)
+[2026-02-05T06:00:00.750+0000] {subprocess.py:93} INFO - Downloading urllib3-2.6.3-py3-none-any.whl (131 kB)
+[2026-02-05T06:00:00.772+0000] {subprocess.py:93} INFO - Downloading zipp-3.23.0-py3-none-any.whl (10 kB)
+[2026-02-05T06:00:01.145+0000] {subprocess.py:93} INFO - Installing collected packages: text-unidecode, pytz, pytimeparse, parsedatetime, leather, daff, zipp, urllib3, typing-extensions, sqlparse, six, rpds-py, pyyaml, python-slugify, psycopg2-binary, protobuf, pathspec, packaging, orderly-set, networkx, msgpack, more-itertools, MarkupSafe, isodate, idna, dbt-extractor, colorama, click, charset_normalizer, certifi, Babel, attrs, annotated-types, typing-inspection, requests, referencing, python-dateutil, pydantic-core, mashumaro, jinja2, importlib-metadata, deepdiff, dbt-protos, agate, snowplow-tracker, pydantic, jsonschema-specifications, jsonschema, dbt-semantic-interfaces, dbt-common, dbt-adapters, dbt-core, dbt-postgres
+[2026-02-05T06:00:10.740+0000] {subprocess.py:93} INFO - Successfully installed Babel-2.18.0 MarkupSafe-3.0.3 agate-1.9.1 annotated-types-0.7.0 attrs-25.4.0 certifi-2026.1.4 charset_normalizer-3.4.4 click-8.3.1 colorama-0.4.6 daff-1.4.2 dbt-adapters-1.22.5 dbt-common-1.37.2 dbt-core-1.11.2 dbt-extractor-0.6.0 dbt-postgres-1.10.0 dbt-protos-1.0.427 dbt-semantic-interfaces-0.9.0 deepdiff-8.6.1 idna-3.11 importlib-metadata-8.7.1 isodate-0.7.2 jinja2-3.1.6 jsonschema-4.26.0 jsonschema-specifications-2025.9.1 leather-0.4.1 mashumaro-3.14 more-itertools-10.8.0 msgpack-1.1.2 networkx-3.6.1 orderly-set-5.5.0 packaging-26.0 parsedatetime-2.6 pathspec-0.12.1 protobuf-6.33.5 psycopg2-binary-2.9.11 pydantic-2.12.5 pydantic-core-2.41.5 python-dateutil-2.9.0.post0 python-slugify-8.0.4 pytimeparse-1.1.8 pytz-2025.2 pyyaml-6.0.3 referencing-0.37.0 requests-2.32.5 rpds-py-0.30.0 six-1.17.0 snowplow-tracker-1.1.0 sqlparse-0.5.4 text-unidecode-1.3 typing-extensions-4.15.0 typing-inspection-0.4.2 urllib3-2.6.3 zipp-3.23.0
+[2026-02-05T06:00:10.996+0000] {subprocess.py:93} INFO - 
+[2026-02-05T06:00:10.996+0000] {subprocess.py:93} INFO - [notice] A new release of pip is available: 24.2 -> 26.0.1
+[2026-02-05T06:00:11.010+0000] {subprocess.py:93} INFO - [notice] To update, run: pip install --upgrade pip
+[2026-02-05T06:00:16.128+0000] {subprocess.py:93} INFO - [0m06:00:16  Running with dbt=1.11.2
+[2026-02-05T06:00:16.810+0000] {subprocess.py:93} INFO - [0m06:00:16  Registered adapter: postgres=1.10.0
+[2026-02-05T06:00:17.411+0000] {subprocess.py:93} INFO - [0m06:00:17  Unable to do partial parsing because profile has changed
+[2026-02-05T06:00:17.420+0000] {subprocess.py:93} INFO - [0m06:00:17  Unable to do partial parsing because a project config has changed
+[2026-02-05T06:00:21.575+0000] {subprocess.py:93} INFO - [0m06:00:21  Found 2 models, 1 source, 464 macros
+[2026-02-05T06:00:21.583+0000] {subprocess.py:93} INFO - [0m06:00:21
+[2026-02-05T06:00:21.584+0000] {subprocess.py:93} INFO - [0m06:00:21  Concurrency: 1 threads (target='dev')
+[2026-02-05T06:00:21.586+0000] {subprocess.py:93} INFO - [0m06:00:21
+[2026-02-05T06:00:22.114+0000] {subprocess.py:93} INFO - [0m06:00:22  1 of 2 START sql view model public.stg_crypto_prices ........................... [RUN]
+[2026-02-05T06:00:22.526+0000] {subprocess.py:93} INFO - [0m06:00:22  1 of 2 OK created sql view model public.stg_crypto_prices ...................... [[32mCREATE VIEW[0m in 0.40s]
+[2026-02-05T06:00:22.535+0000] {subprocess.py:93} INFO - [0m06:00:22  2 of 2 START sql view model public.avg_price_analytics ......................... [RUN]
+[2026-02-05T06:00:22.660+0000] {subprocess.py:93} INFO - [0m06:00:22  2 of 2 OK created sql view model public.avg_price_analytics .................... [[32mCREATE VIEW[0m in 0.12s]
+[2026-02-05T06:00:22.681+0000] {subprocess.py:93} INFO - [0m06:00:22
+[2026-02-05T06:00:22.682+0000] {subprocess.py:93} INFO - [0m06:00:22  Finished running 2 view models in 0 hours 0 minutes and 1.09 seconds (1.09s).
+[2026-02-05T06:00:22.767+0000] {subprocess.py:93} INFO - [0m06:00:22
+[2026-02-05T06:00:22.768+0000] {subprocess.py:93} INFO - [0m06:00:22  [32mCompleted successfully[0m
+[2026-02-05T06:00:22.769+0000] {subprocess.py:93} INFO - [0m06:00:22
+[2026-02-05T06:00:22.771+0000] {subprocess.py:93} INFO - [0m06:00:22  Done. PASS=2 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=2
+[2026-02-05T06:00:24.405+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-02-05T06:00:24.434+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-02-05T06:00:24.434+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=crypto_etl_pipeline, task_id=dbt_transform, run_id=scheduled__2026-02-05T04:00:00+00:00, execution_date=20260205T040000, start_date=20260205T055941, end_date=20260205T060024
+[2026-02-05T06:00:24.476+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-02-05T06:00:24.496+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-02-05T06:00:24.498+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

@@ -1,0 +1,23 @@
+[2026-02-05T06:00:02.110+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-02-05T06:00:02.140+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: crypto_etl_pipeline.extract_data scheduled__2026-02-05T05:00:00+00:00 [queued]>
+[2026-02-05T06:00:02.155+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: crypto_etl_pipeline.extract_data scheduled__2026-02-05T05:00:00+00:00 [queued]>
+[2026-02-05T06:00:02.156+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2026-02-05T06:00:02.186+0000] {taskinstance.py:2888} INFO - Executing <Task(PythonOperator): extract_data> on 2026-02-05 05:00:00+00:00
+[2026-02-05T06:00:02.265+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=283) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-02-05T06:00:02.273+0000] {standard_task_runner.py:72} INFO - Started process 285 to run task
+[2026-02-05T06:00:02.268+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'crypto_etl_pipeline', 'extract_data', 'scheduled__2026-02-05T05:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/crypto_pipeline.py', '--cfg-path', '/tmp/tmpr91_6x0b']
+[2026-02-05T06:00:02.285+0000] {standard_task_runner.py:105} INFO - Job 5: Subtask extract_data
+[2026-02-05T06:00:02.335+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:209 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-02-05T06:00:02.436+0000] {task_command.py:467} INFO - Running <TaskInstance: crypto_etl_pipeline.extract_data scheduled__2026-02-05T05:00:00+00:00 [running]> on host 87e9046ae7a3
+[2026-02-05T06:00:02.439+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:470 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2026-02-05T06:00:02.643+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='crypto_etl_pipeline' AIRFLOW_CTX_TASK_ID='extract_data' AIRFLOW_CTX_EXECUTION_DATE='2026-02-05T05:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-02-05T05:00:00+00:00'
+[2026-02-05T06:00:02.645+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-02-05T06:00:02.664+0000] {logging_mixin.py:190} INFO - 🚀 Launching API Request to https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false...
+[2026-02-05T06:00:02.781+0000] {logging_mixin.py:190} INFO - ✅ API Success! Uploading to S3...
+[2026-02-05T06:00:04.557+0000] {logging_mixin.py:190} INFO - ✅ Upload Successful to S3!
+[2026-02-05T06:00:04.559+0000] {python.py:240} INFO - Done. Returned value was: None
+[2026-02-05T06:00:04.576+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-02-05T06:00:04.577+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=crypto_etl_pipeline, task_id=extract_data, run_id=scheduled__2026-02-05T05:00:00+00:00, execution_date=20260205T050000, start_date=20260205T060002, end_date=20260205T060004
+[2026-02-05T06:00:04.628+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-02-05T06:00:04.662+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-02-05T06:00:04.664+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

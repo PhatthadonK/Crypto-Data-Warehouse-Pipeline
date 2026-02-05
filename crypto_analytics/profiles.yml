@@ -1,0 +1,12 @@
+crypto_analytics:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: postgres_dw
+      user: airflow
+      password: airflow
+      port: 5432
+      dbname: crypto_db
+      schema: public
+      threads: 1

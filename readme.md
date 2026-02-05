@@ -67,10 +67,10 @@ User: airflow | Pass: airflow
 
 Metabase: http://localhost:3000
 
-### 5. Configure Airflow Connection
-In the Airflow UI, go to Admin → Connections and add:
+5. Configure Airflow Connection
+This allows Airflow to talk to the Data Warehouse. In the Airflow UI, go to Admin → Connections and add:
 
-Plaintext
+```bash
 Conn Id: postgres_dw
 Conn Type: Postgres
 Host: postgres_dw
@@ -78,7 +78,29 @@ Schema: crypto_db
 Login: airflow
 Password: airflow
 Port: 5432
-🏃‍♂️ Usage
+```
+
+### 6. Configure Metabase Connection
+This allows Metabase to visualize the data.
+
+Go to http://localhost:3000 and click "Let's get started".
+
+Select PostgreSQL as the database.
+
+```bash
+Enter the following Docker network details:
+
+Host: postgres_dw
+
+Port: 5432
+
+Database Name: crypto_db
+
+Username: airflow
+
+Password: airflow
+```
+## 🏃‍♂️ Usage
 Activate: Enable the DAG named crypto_etl_pipeline in the Airflow UI.
 
 Schedule: The pipeline runs automatically @hourly.

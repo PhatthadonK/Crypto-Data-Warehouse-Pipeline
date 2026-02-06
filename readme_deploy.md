@@ -95,13 +95,13 @@ Start the Server:
 
 ```Bash
 docker compose up -d
-Check Health:
 ```
+Check Health:
 ```Bash
 docker compose ps
 docker stats --no-stream
-Create Login User (Run once):
 ```
+Create Login User (Run once):
 ```Bash
 docker compose exec airflow-webserver airflow users create \
     --username airflow \

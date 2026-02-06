@@ -13,8 +13,7 @@ Custom TCP (3000) -> Anywhere (0.0.0.0/0) - For Metabase
 
 # 2. The File Directory Structure
 This is exactly how your folder (~/Crypto-Data-Warehouse-Pipeline) must look for the Docker mount to work.
-
-Plaintext
+```
 Crypto-Data-Warehouse-Pipeline/      <-- Project Root
 ├── dags/                            <-- Python Pipeline scripts (chmod 777)
 ├── logs/                            <-- Airflow Logs (chmod 777)
@@ -26,6 +25,7 @@ Crypto-Data-Warehouse-Pipeline/      <-- Project Root
 ├── docker-compose.override.yaml     <-- The "Performance Patch"
 ├── Dockerfile                       <-- Custom image instructions
 └── requirements.txt                 <-- Python libraries (chmod 777)
+```
 # 3. Setup & Permissions Commands (The Script)
 Run these commands in order on a fresh EC2 instance.
 
